@@ -473,7 +473,19 @@ ${(global.linkGC).map((v, i) => '*Group ' + (i + 1) + '*\n' + v).join`\n\n`}
           }
         })
         break
-    }
+    case 'buildgi': 
+        if (args.length <1) return reply(`Masukkan nama characternya contoh #genshin Hu Tao`)
+        buff = await getBuffer(`https://github.com/GaadaUsernamenya/database/blob/main/buildgi/${args[0]}.jpeg`)
+        buttons = [{buttonId: `#menu`,buttonText:{displayText: `?`},type:1},{ buttonId: `#linkgc`, buttonText: { displayText: 'admin kontol' }, type: 1 }]
+        imageMsg = (await client.prepareMessageMedia(buff, "imageMessage", { thumbnail: buff, })).imageMessage
+        buttonsMessage = {footerText:'Mayumi DVT', imageMessage: imageMsg,
+        contentText:`Follow @Miyuki DVT_`,buttons,headerType:4}
+        prep = await ikyy.prepareMessageFromContent(from,{buttonsMessage},{quoted: freply})
+        client.relayWAMessage(prep)
+       }
+     }
+   }
+break
   },
   async delete(m) {
     if (m.key.remoteJid == 'status@broadcast') return
