@@ -480,7 +480,7 @@ ${(global.linkGC).map((v, i) => '*Group ' + (i + 1) + '*\n' + v).join`\n\n`}
         imageMsg = (await client.prepareMessageMedia(buff, "imageMessage", { thumbnail: buff, })).imageMessage
         buttonsMessage = {footerText:'Mayumi DVT', imageMessage: imageMsg,
         contentText:`Follow @Miyuki DVT_`,buttons,headerType:4}
-        prep = await ikyy.prepareMessageFromContent(from,{buttonsMessage},{quoted: freply})
+        prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: freply})
         client.relayWAMessage(prep)
        }
      }
